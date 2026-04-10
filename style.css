@@ -1,17 +1,61 @@
 :root {
   --bg: #f8fafc;
-  --bg-soft: #eef4ff;
-  --surface: rgba(255, 255, 255, 0.88);
-  --card: #ffffff;
+  --bg-alt: #eef4ff;
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-strong: #ffffff;
   --text: #0f172a;
   --muted: #475569;
   --primary: #2563eb;
   --primary-dark: #1d4ed8;
   --border: #e2e8f0;
+  --tag-bg: linear-gradient(180deg, #eff6ff, #dbeafe);
+  --tag-border: #bfdbfe;
+  --tag-text: #1d4ed8;
   --shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
   --shadow-soft: 0 12px 30px rgba(37, 99, 235, 0.12);
   --radius: 22px;
   --max-width: 1120px;
+  --hero-gradient:
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,0.18), transparent 20%),
+    radial-gradient(circle at 85% 25%, rgba(255,255,255,0.16), transparent 18%),
+    linear-gradient(135deg, #0f172a 0%, #1e3a8a 45%, #2563eb 100%);
+  --hero-text: #ffffff;
+  --hero-subtext: rgba(255, 255, 255, 0.92);
+  --profile-bg: rgba(255, 255, 255, 0.12);
+  --profile-border: rgba(255, 255, 255, 0.18);
+  --nav-link: rgba(255, 255, 255, 0.92);
+  --toggle-bg: rgba(255, 255, 255, 0.12);
+  --toggle-border: rgba(255, 255, 255, 0.2);
+  --toggle-text: #ffffff;
+}
+
+html[data-theme="dark"] {
+  --bg: #0b1220;
+  --bg-alt: #111827;
+  --surface: rgba(15, 23, 42, 0.78);
+  --surface-strong: #0f172a;
+  --text: #e5eefb;
+  --muted: #9fb0c9;
+  --primary: #60a5fa;
+  --primary-dark: #93c5fd;
+  --border: rgba(148, 163, 184, 0.18);
+  --tag-bg: linear-gradient(180deg, #172554, #1e3a8a);
+  --tag-border: rgba(96, 165, 250, 0.25);
+  --tag-text: #dbeafe;
+  --shadow: 0 20px 50px rgba(2, 8, 23, 0.45);
+  --shadow-soft: 0 12px 30px rgba(2, 8, 23, 0.35);
+  --hero-gradient:
+    radial-gradient(circle at 15% 20%, rgba(96,165,250,0.12), transparent 20%),
+    radial-gradient(circle at 85% 25%, rgba(168,85,247,0.12), transparent 18%),
+    linear-gradient(135deg, #020617 0%, #0f172a 45%, #1e293b 100%);
+  --hero-text: #f8fafc;
+  --hero-subtext: rgba(226, 232, 240, 0.9);
+  --profile-bg: rgba(15, 23, 42, 0.5);
+  --profile-border: rgba(148, 163, 184, 0.16);
+  --nav-link: rgba(226, 232, 240, 0.92);
+  --toggle-bg: rgba(15, 23, 42, 0.4);
+  --toggle-border: rgba(148, 163, 184, 0.22);
+  --toggle-text: #e2e8f0;
 }
 
 * {
@@ -29,10 +73,11 @@ body {
     "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at top left, #dbeafe 0%, transparent 30%),
-    radial-gradient(circle at top right, #ede9fe 0%, transparent 25%),
-    linear-gradient(to bottom, #f8fbff, #f8fafc);
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.12) 0%, transparent 30%),
+    radial-gradient(circle at top right, rgba(168, 85, 247, 0.10) 0%, transparent 25%),
+    linear-gradient(to bottom, var(--bg-alt), var(--bg));
   line-height: 1.7;
+  transition: background 0.35s ease, color 0.35s ease;
 }
 
 /* 可访问性 */
@@ -53,7 +98,7 @@ body {
 
 a:focus,
 button:focus {
-  outline: 3px solid rgba(37, 99, 235, 0.35);
+  outline: 3px solid rgba(96, 165, 250, 0.35);
   outline-offset: 3px;
   border-radius: 10px;
 }
@@ -63,11 +108,9 @@ button:focus {
   position: relative;
   overflow: hidden;
   padding: 24px 20px 110px;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(255,255,255,0.18), transparent 20%),
-    radial-gradient(circle at 85% 25%, rgba(255,255,255,0.16), transparent 18%),
-    linear-gradient(135deg, #0f172a 0%, #1e3a8a 45%, #2563eb 100%);
-  color: #fff;
+  background: var(--hero-gradient);
+  color: var(--hero-text);
+  transition: background 0.35s ease, color 0.35s ease;
 }
 
 .navbar {
@@ -81,11 +124,18 @@ button:focus {
 }
 
 .logo {
-  color: white;
+  color: var(--hero-text);
   text-decoration: none;
   font-size: 1.35rem;
   font-weight: 800;
   letter-spacing: 0.4px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 .nav-links {
@@ -96,7 +146,7 @@ button:focus {
 }
 
 .nav-links a {
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--nav-link);
   text-decoration: none;
   font-weight: 500;
   transition: opacity 0.2s ease, transform 0.2s ease;
@@ -105,6 +155,29 @@ button:focus {
 .nav-links a:hover {
   opacity: 0.82;
   transform: translateY(-1px);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--toggle-border);
+  background: var(--toggle-bg);
+  color: var(--toggle-text);
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.theme-icon {
+  font-size: 1rem;
 }
 
 .hero-inner {
@@ -137,10 +210,14 @@ button:focus {
   color: #bfdbfe;
 }
 
+html[data-theme="dark"] .hero-text h1 span {
+  color: #93c5fd;
+}
+
 .hero-description {
   max-width: 680px;
   font-size: 1.08rem;
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--hero-subtext);
 }
 
 .hero-buttons {
@@ -156,7 +233,7 @@ button:focus {
   border-radius: 14px;
   text-decoration: none;
   font-weight: 700;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
 .btn:hover {
@@ -165,12 +242,22 @@ button:focus {
 
 .btn.primary {
   background: #fff;
-  color: var(--primary);
+  color: #2563eb;
   box-shadow: 0 10px 24px rgba(255, 255, 255, 0.18);
 }
 
 .btn.primary:hover {
   background: #eff6ff;
+}
+
+html[data-theme="dark"] .btn.primary {
+  background: #dbeafe;
+  color: #0f172a;
+  box-shadow: 0 10px 24px rgba(2, 8, 23, 0.28);
+}
+
+html[data-theme="dark"] .btn.primary:hover {
+  background: #bfdbfe;
 }
 
 .btn.secondary {
@@ -193,8 +280,8 @@ button:focus {
   max-width: 360px;
   padding: 28px;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--profile-bg);
+  border: 1px solid var(--profile-border);
   backdrop-filter: blur(16px);
   box-shadow: var(--shadow-soft);
 }
@@ -218,7 +305,7 @@ button:focus {
 }
 
 .profile-card p {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--hero-subtext);
 }
 
 .profile-meta {
@@ -226,7 +313,7 @@ button:focus {
   margin-top: 18px;
   display: grid;
   gap: 10px;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--hero-subtext);
 }
 
 .hero-wave {
@@ -246,13 +333,14 @@ button:focus {
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.78);
+  background: var(--surface);
   backdrop-filter: blur(14px);
-  border: 1px solid rgba(226, 232, 240, 0.9);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow);
   border-radius: var(--radius);
   padding: 32px;
   margin-bottom: 24px;
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
 .section-header {
@@ -285,9 +373,9 @@ button:focus {
   padding: 10px 15px;
   border-radius: 999px;
   font-weight: 700;
-  color: var(--primary-dark);
-  background: linear-gradient(180deg, #eff6ff, #dbeafe);
-  border: 1px solid #bfdbfe;
+  color: var(--tag-text);
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-border);
   box-shadow: 0 8px 18px rgba(37, 99, 235, 0.08);
 }
 
@@ -302,14 +390,22 @@ button:focus {
   overflow: hidden;
   border-radius: 20px;
   border: 1px solid var(--border);
-  background: #ffffff;
+  background: var(--surface-strong);
   box-shadow: 0 14px 32px rgba(15, 23, 42, 0.06);
-  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.35s ease, border-color 0.35s ease;
+}
+
+html[data-theme="dark"] .project-item {
+  box-shadow: 0 16px 32px rgba(2, 8, 23, 0.35);
 }
 
 .project-item:hover {
   transform: translateY(-6px);
   box-shadow: 0 22px 40px rgba(15, 23, 42, 0.1);
+}
+
+html[data-theme="dark"] .project-item:hover {
+  box-shadow: 0 24px 42px rgba(2, 8, 23, 0.45);
 }
 
 .project-image {
@@ -361,13 +457,15 @@ button:focus {
   flex-wrap: wrap;
 }
 
-.project-links a {
+.project-links a,
+.contact-list a {
   color: var(--primary);
   text-decoration: none;
   font-weight: 700;
 }
 
-.project-links a:hover {
+.project-links a:hover,
+.contact-list a:hover {
   text-decoration: underline;
 }
 
@@ -381,15 +479,6 @@ button:focus {
   margin-bottom: 10px;
 }
 
-.contact-list a {
-  color: var(--primary);
-  text-decoration: none;
-}
-
-.contact-list a:hover {
-  text-decoration: underline;
-}
-
 /* 页脚 */
 .footer {
   text-align: center;
@@ -398,7 +487,7 @@ button:focus {
   font-size: 0.96rem;
 }
 
-/* 轻微动效 */
+/* 动效 */
 .reveal {
   animation: fadeUp 0.7s ease both;
 }
@@ -438,6 +527,11 @@ button:focus {
     margin-bottom: 42px;
   }
 
+  .nav-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
   .container {
     margin-top: -24px;
   }
@@ -468,6 +562,10 @@ button:focus {
 @media (max-width: 520px) {
   .nav-links {
     gap: 14px;
+  }
+
+  .theme-text {
+    display: none;
   }
 
   .hero-text h1 {
