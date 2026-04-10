@@ -1,5 +1,28 @@
 :root {
-  --bg: #0b1020;
+  --bg: #f8fafc;
+  --bg-gradient-1: #dbeafe;
+  --bg-gradient-2: #f8fafc;
+  --bg-soft: #e2e8f0;
+  --card: rgba(255, 255, 255, 0.82);
+  --card-border: rgba(15, 23, 42, 0.08);
+  --text: #0f172a;
+  --text-muted: #475569;
+  --primary: #2563eb;
+  --primary-strong: #1d4ed8;
+  --secondary: #0f766e;
+  --shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+  --radius: 20px;
+  --max-width: 1120px;
+  --nav-bg: rgba(248, 250, 252, 0.8);
+  --tag-bg: rgba(37, 99, 235, 0.08);
+  --tag-border: rgba(37, 99, 235, 0.14);
+  --item-bg: rgba(255, 255, 255, 0.78);
+}
+
+[data-theme="dark"] {
+  --bg: #020617;
+  --bg-gradient-1: #172554;
+  --bg-gradient-2: #020617;
   --bg-soft: #121936;
   --card: rgba(255, 255, 255, 0.08);
   --card-border: rgba(255, 255, 255, 0.12);
@@ -9,8 +32,10 @@
   --primary-strong: #5f82ff;
   --secondary: #8ef0d2;
   --shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
-  --radius: 20px;
-  --max-width: 1120px;
+  --nav-bg: rgba(2, 6, 23, 0.72);
+  --tag-bg: rgba(255, 255, 255, 0.06);
+  --tag-border: rgba(255, 255, 255, 0.08);
+  --item-bg: rgba(255, 255, 255, 0.04);
 }
 
 * {
@@ -26,9 +51,14 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   color: var(--text);
-  background: radial-gradient(circle at top left, #1b2452, #0b1020 45%),
-    linear-gradient(180deg, #0b1020 0%, #0a0f1c 100%);
+  background: radial-gradient(
+      circle at top left,
+      var(--bg-gradient-1),
+      var(--bg-gradient-2) 45%
+    ),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg) 100%);
   line-height: 1.7;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -41,6 +71,10 @@ img {
   display: block;
 }
 
+button {
+  font: inherit;
+}
+
 .container {
   width: min(var(--max-width), calc(100% - 32px));
   margin: 0 auto;
@@ -51,14 +85,15 @@ img {
   top: 0;
   z-index: 100;
   backdrop-filter: blur(12px);
-  background: rgba(11, 16, 32, 0.72);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--card-border);
 }
 
 .nav-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
   padding: 16px 0;
 }
 
@@ -66,6 +101,13 @@ img {
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.2px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 .nav-links {
@@ -81,6 +123,23 @@ img {
 
 .nav-links a:hover {
   color: var(--text);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
 }
 
 .hero {
@@ -101,10 +160,11 @@ img {
   margin: 0 0 16px;
   padding: 8px 14px;
   border-radius: 999px;
-  background: rgba(124, 156, 255, 0.14);
-  border: 1px solid rgba(124, 156, 255, 0.24);
-  color: #d9e3ff;
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  color: var(--primary);
   font-size: 14px;
+  font-weight: 600;
 }
 
 h1 {
@@ -149,16 +209,16 @@ h1 span {
 .btn.primary {
   background: linear-gradient(135deg, var(--primary), var(--primary-strong));
   color: white;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.28);
+}
+
+[data-theme="dark"] .btn.primary {
   box-shadow: 0 10px 24px rgba(95, 130, 255, 0.35);
 }
 
-.btn.primary:hover {
-  box-shadow: 0 14px 28px rgba(95, 130, 255, 0.4);
-}
-
 .btn.secondary {
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
+  background: var(--card);
   color: var(--text);
 }
 
@@ -168,6 +228,7 @@ h1 span {
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .hero-card {
@@ -182,8 +243,8 @@ h1 span {
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #7c9cff, #8ef0d2);
-  color: #0b1020;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -213,8 +274,9 @@ h1 span {
 .profile-meta li {
   padding: 12px 14px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.05);
-  color: #d7dff5;
+  background: var(--item-bg);
+  color: var(--text);
+  border: 1px solid var(--card-border);
 }
 
 main {
@@ -261,9 +323,9 @@ h2 {
 .tags span {
   padding: 10px 14px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #dbe4fa;
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  color: var(--text);
   font-size: 14px;
 }
 
@@ -279,15 +341,19 @@ h2 {
   align-items: stretch;
   padding: 18px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--item-bg);
+  border: 1px solid var(--card-border);
   transition: transform 0.25s ease, border-color 0.25s ease,
     box-shadow 0.25s ease;
 }
 
 .project-item:hover {
   transform: translateY(-4px);
-  border-color: rgba(124, 156, 255, 0.28);
+  border-color: var(--primary);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .project-item:hover {
   box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
 }
 
@@ -324,8 +390,9 @@ h2 {
 }
 
 .project-tech {
-  color: #c8d3f3 !important;
+  color: var(--primary) !important;
   font-size: 14px;
+  font-weight: 600;
 }
 
 .project-links {
@@ -361,8 +428,9 @@ h2 {
 .contact-list li {
   padding: 14px 16px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.05);
-  color: #dce4f9;
+  background: var(--item-bg);
+  color: var(--text);
+  border: 1px solid var(--card-border);
 }
 
 .contact-list a {
@@ -406,10 +474,19 @@ footer {
 @media (max-width: 640px) {
   .nav-inner {
     flex-direction: column;
-    gap: 12px;
+    align-items: stretch;
+  }
+
+  .nav-right {
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .nav-links {
+    justify-content: center;
+  }
+
+  .theme-toggle {
     justify-content: center;
   }
 
