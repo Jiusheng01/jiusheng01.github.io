@@ -7,7 +7,6 @@
   <meta name="description" content="你的名字的个人作品集主页，展示技能、项目与联系方式。" />
   <meta name="theme-color" content="#2563eb" />
 
-  <!-- Open Graph -->
   <meta property="og:title" content="你的名字 | 个人主页" />
   <meta property="og:description" content="个人作品集、技能栈与项目展示" />
   <meta property="og:type" content="website" />
@@ -20,12 +19,27 @@
   <header class="hero">
     <nav class="navbar" aria-label="主导航">
       <a href="#" class="logo">MyPage</a>
-      <ul class="nav-links">
-        <li><a href="#about">关于我</a></li>
-        <li><a href="#skills">技能</a></li>
-        <li><a href="#projects">项目</a></li>
-        <li><a href="#contact">联系我</a></li>
-      </ul>
+
+      <div class="nav-actions">
+        <ul class="nav-links">
+          <li><a href="#about">关于我</a></li>
+          <li><a href="#skills">技能</a></li>
+          <li><a href="#projects">项目</a></li>
+          <li><a href="#contact">联系我</a></li>
+        </ul>
+
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="切换暗黑模式"
+          aria-pressed="false"
+          title="切换明暗模式"
+        >
+          <span class="theme-icon" aria-hidden="true">🌙</span>
+          <span class="theme-text">暗黑模式</span>
+        </button>
+      </div>
     </nav>
 
     <div class="hero-inner">
@@ -186,5 +200,7 @@
   <footer class="footer">
     <p>© 2025 你的名字 · Built with GitHub Pages</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
