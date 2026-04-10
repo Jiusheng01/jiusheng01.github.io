@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>你的名字 | Agent 与 LLM 应用开发作品集</title>
+    <title>个人主页 | Jiusheng01</title>
     <meta
       name="description"
-      content="你的名字的个人作品集主页，聚焦深度学习基础、Agent 与 LLM 应用开发、RAG 与项目实践。"
+      content="Jiusheng01 的个人主页：深度学习基础、Agent 与 LLM 应用实践、项目展示与联系方式。"
     />
-    <meta name="theme-color" content="#2563eb" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <!-- Navbar -->
     <header class="navbar">
       <div class="container nav-inner">
-        <a href="#" class="brand">你的名字</a>
+        <a class="brand" href="#top">Jiusheng01</a>
 
         <div class="nav-right">
-          <nav class="nav-links" aria-label="主导航">
+          <nav class="nav-links">
             <a href="#about">关于我</a>
             <a href="#skills">技能栈</a>
             <a href="#projects">项目展示</a>
@@ -25,208 +25,259 @@
           </nav>
 
           <button
-            id="theme-toggle"
+            id="themeToggle"
             class="theme-toggle"
             type="button"
             aria-label="切换主题"
-            aria-pressed="false"
           >
-            <span class="theme-icon">🌙</span>
-            <span class="theme-text">暗黑模式</span>
+            <span id="themeIcon">🌙</span>
+            <span id="themeText">夜晚模式</span>
           </button>
         </div>
       </div>
     </header>
 
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-text reveal">
-          <p class="badge">Deep Learning · LLM · Agent · Project Building</p>
-          <h1>你好，我是 <span>你的名字</span> 👋</h1>
-          <p class="hero-description">
-            我具备深度学习相关基础，曾做过低光照图像增强方向的实践。
-            目前正在进行 Agent 与 LLM 应用开发学习与项目实践，重点关注智能体工作流、工具调用、RAG 与任务自动化。
-            我希望沿着这一方向持续积累，并把想法不断项目化、工程化。
-          </p>
+    <main id="top">
+      <!-- Hero -->
+      <section class="hero reveal">
+        <div class="container hero-grid">
+          <div class="hero-text">
+            <p class="badge">Deep Learning · LLM · Agent · Project Building</p>
+            <h1>你好，我是 <span>Jiusheng01</span> 👋</h1>
+            <p class="hero-description">
+              我具备深度学习相关基础，曾做过低光照图像增强方向的实践。正在进行 Agent 与
+              LLM 应用开发学习与项目实践，重点关注多智能体工作流、工具调用、RAG 与任务自动化，
+              持续将想法项目化并工程落地。
+            </p>
 
-          <div class="hero-buttons">
-            <a
-              href="https://github.com/你的用户名"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn primary"
-            >
-              GitHub
-            </a>
-            <a href="#projects" class="btn secondary">查看项目</a>
+            <div class="hero-buttons">
+              <a
+                class="btn primary"
+                href="https://github.com/Jiusheng01/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+              <a class="btn secondary" href="#projects">查看项目</a>
+            </div>
           </div>
-        </div>
 
-        <div class="hero-card reveal">
-          <div class="profile-card">
-            <div class="avatar">你</div>
-            <h2>你的名字</h2>
+          <aside class="hero-card profile-card">
+            <div class="avatar">J</div>
+            <h2>Jiusheng01</h2>
             <p>深度学习基础 / Agent 与 LLM 应用实践者</p>
-
             <ul class="profile-meta">
               <li>📍 中国</li>
-              <li>🧠 有深度学习基础</li>
-              <li>🤖 正在做 Agent 与 LLM 应用实践</li>
-              <li>🚀 持续项目化与工程化积累</li>
+              <li>🧠 深度学习基础（含图像方向实践）</li>
+              <li>🤖 多 Agent / LLM 应用开发</li>
+              <li>🚀 持续构建可落地项目</li>
             </ul>
+          </aside>
+        </div>
+      </section>
+
+      <div class="container">
+        <!-- About -->
+        <section id="about" class="card reveal">
+          <div class="section-header">
+            <p class="section-kicker">About</p>
+            <h2>关于我</h2>
           </div>
-        </div>
+          <p>
+            我专注于 AI 应用开发与项目落地，当前主要实践方向是
+            <strong>LangGraph 多智能体工作流</strong>、<strong>LLM 应用工程化</strong>、
+            <strong>MCP 工具接入</strong> 以及前后端联调。希望通过持续项目实践，沉淀从
+            Prompt 到 Workflow、从 Demo 到可部署系统的完整能力。
+          </p>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="card reveal">
+          <div class="section-header">
+            <p class="section-kicker">Skills</p>
+            <h2>技能栈</h2>
+          </div>
+          <div class="tags">
+            <span>Python</span>
+            <span>FastAPI</span>
+            <span>LangChain</span>
+            <span>LangGraph</span>
+            <span>LLM (OpenAI / DeepSeek)</span>
+            <span>MCP</span>
+            <span>Vue 3</span>
+            <span>TypeScript</span>
+            <span>Vite</span>
+            <span>Ant Design Vue</span>
+            <span>Axios</span>
+            <span>Git / GitHub</span>
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="card reveal">
+          <div class="section-header">
+            <p class="section-kicker">Projects</p>
+            <h2>项目展示</h2>
+          </div>
+
+          <div class="project-grid">
+            <!-- Project 1: trip -->
+            <article class="project-item">
+              <div class="project-image placeholder blue">
+                <span>Project 01</span>
+              </div>
+              <div class="project-body">
+                <h3>多 Agent 智能旅行助手（trip）</h3>
+                <p>
+                  基于 <strong>LangGraph</strong> 构建的多智能体智能旅行助手，集成
+                  <strong>高德地图 MCP 服务</strong>，可根据目的地、天数、偏好等输入自动生成个性化多日行程。
+                  系统支持景点 POI 搜索、天气查询、步行/驾车/公交路线规划，并整合住宿、交通、餐饮与游览建议，
+                  输出结构化、可执行的旅行计划。
+                </p>
+                <p class="project-tech">
+                  LangGraph · FastAPI · amap-mcp-server · LLM(OpenAI/DeepSeek) ·
+                  Vue3 · TypeScript · Vite · Ant Design Vue · Axios · 高德地图 JS API
+                </p>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/Jiusheng01/trip"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
+                  <a href="#" class="disabled-link">暂未部署</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="project-item">
+              <div class="project-image placeholder purple">
+                <span>Project 02</span>
+              </div>
+              <div class="project-body">
+                <h3>LLM / Agent 练习项目（建设中）</h3>
+                <p>
+                  围绕工具调用、记忆机制、任务编排与可观测性进行持续实验，逐步沉淀标准化开发模板与实践文档。
+                </p>
+                <p class="project-tech">Python · LLM · Agent · Workflow</p>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/Jiusheng01/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub 主页
+                  </a>
+                  <a href="#" class="disabled-link">暂未开放</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="project-item">
+              <div class="project-image placeholder pink">
+                <span>Project 03</span>
+              </div>
+              <div class="project-body">
+                <h3>深度学习图像方向实践（整理中）</h3>
+                <p>
+                  包含低光照图像增强相关学习与实验记录，计划补充训练流程、效果对比与推理部署说明。
+                </p>
+                <p class="project-tech">PyTorch · CV · Low-light Enhancement</p>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/Jiusheng01/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub 主页
+                  </a>
+                  <a href="#" class="disabled-link">整理中</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="card reveal">
+          <div class="section-header">
+            <p class="section-kicker">Contact</p>
+            <h2>联系我</h2>
+          </div>
+          <p>欢迎交流 AI 应用开发、Agent 工作流与项目合作。</p>
+          <ul class="contact-list">
+            <li>
+              GitHub：
+              <a
+                href="https://github.com/Jiusheng01/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://github.com/Jiusheng01/
+              </a>
+            </li>
+            <li>邮箱：your_email@example.com</li>
+          </ul>
+        </section>
       </div>
-    </section>
-
-    <main class="container">
-      <section id="about" class="card reveal">
-        <div class="section-header">
-          <p class="section-kicker">About Me</p>
-          <h2>关于我</h2>
-        </div>
-        <p>
-          我有一定的深度学习基础，做过低光照图像增强相关项目，对模型训练与实验实践有一定了解。
-          目前我正在转向 Agent 与 LLM 应用开发方向，重点学习智能体工作流、工具调用、知识检索增强与自动化任务执行等内容。
-          我对自己的技术方向有比较明确的规划，希望通过持续项目化实践，逐步构建可落地的 AI 应用能力。
-        </p>
-      </section>
-
-      <section id="skills" class="card reveal">
-        <div class="section-header">
-          <p class="section-kicker">Skills</p>
-          <h2>技能栈</h2>
-        </div>
-
-        <div class="tags" aria-label="技能标签">
-          <span>Python</span>
-          <span>Deep Learning</span>
-          <span>LLM Application</span>
-          <span>Agent Workflow</span>
-          <span>RAG</span>
-          <span>Prompt Engineering</span>
-          <span>Git</span>
-          <span>GitHub</span>
-        </div>
-      </section>
-
-      <section id="projects" class="card reveal">
-        <div class="section-header">
-          <p class="section-kicker">Projects</p>
-          <h2>项目展示</h2>
-        </div>
-
-        <div class="project-grid">
-          <article class="project-item">
-            <div class="project-image placeholder blue">
-              <span>Project 01</span>
-            </div>
-            <div class="project-body">
-              <h3>多工具 Agent 应用实践</h3>
-              <p>
-                一个围绕 Agent 工作流构建的实践项目，支持任务拆解、工具调用与结果整合，
-                用于完成信息查询、内容整理与基础自动化处理，重点验证大模型在复杂任务流程中的应用方式。
-              </p>
-              <p class="project-tech">Python · LLM · Agent · Workflow</p>
-              <div class="project-links">
-                <a
-                  href="https://github.com/你的用户名/项目1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-                <a href="#" class="disabled-link">暂未部署</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-item">
-            <div class="project-image placeholder purple">
-              <span>Project 02</span>
-            </div>
-            <div class="project-body">
-              <h3>RAG 知识库问答实践</h3>
-              <p>
-                一个结合文档检索与大模型生成能力的应用实践，支持知识文档导入、语义检索与基于上下文的问答生成，
-                主要用于探索 RAG 在垂直知识问答与信息增强场景中的应用效果。
-              </p>
-              <p class="project-tech">Python · RAG · Embedding · LLM</p>
-              <div class="project-links">
-                <a
-                  href="https://github.com/你的用户名/项目2"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-                <a href="#" class="disabled-link">暂未部署</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-item">
-            <div class="project-image placeholder pink">
-              <span>Project 03</span>
-            </div>
-            <div class="project-body">
-              <h3>低光照图像增强实践</h3>
-              <p>
-                一个基于深度学习的低光照图像增强项目，围绕图像质量提升、细节恢复与视觉效果优化展开，
-                作为我在视觉任务与模型实验方向上的重要实践积累，也为后续转向 AI 应用开发打下基础。
-              </p>
-              <p class="project-tech">Python · Deep Learning · Image Enhancement</p>
-              <div class="project-links">
-                <a
-                  href="https://github.com/你的用户名/项目3"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-                <a href="#" class="disabled-link">暂未部署</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="contact" class="card reveal">
-        <div class="section-header">
-          <p class="section-kicker">Contact</p>
-          <h2>联系我</h2>
-        </div>
-
-        <p>
-          如果你想交流 Agent、RAG、大模型应用开发，或者一起做有意思的 AI 项目，欢迎和我联系。
-        </p>
-
-        <ul class="contact-list">
-          <li>
-            <strong>Email：</strong>
-            <a href="mailto:your_email@example.com">your_email@example.com</a>
-          </li>
-          <li>
-            <strong>GitHub：</strong>
-            <a
-              href="https://github.com/你的用户名"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              https://github.com/你的用户名
-            </a>
-          </li>
-        </ul>
-      </section>
     </main>
 
     <footer>
       <div class="container">
-        © 2025 你的名字 · Built with focus on Deep Learning, LLM and Agent
-        Applications
+        © <span id="year"></span> Jiusheng01. All rights reserved.
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+      // 年份
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // 主题切换
+      const root = document.documentElement;
+      const themeToggle = document.getElementById("themeToggle");
+      const themeIcon = document.getElementById("themeIcon");
+      const themeText = document.getElementById("themeText");
+
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+        root.setAttribute("data-theme", savedTheme);
+      }
+
+      function updateThemeButton() {
+        const isDark = root.getAttribute("data-theme") === "dark";
+        themeIcon.textContent = isDark ? "🌙" : "☀️";
+        themeText.textContent = isDark ? "夜晚模式" : "白天模式";
+      }
+
+      updateThemeButton();
+
+      themeToggle.addEventListener("click", () => {
+        const current = root.getAttribute("data-theme");
+        const next = current === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+        updateThemeButton();
+      });
+
+      // 滚动显现
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.14 }
+      );
+
+      reveals.forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>
